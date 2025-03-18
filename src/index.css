@@ -12,3 +12,7 @@ body {
   --color-primary: #253d4e;
   --color-secondary: #7e7e7e;
 }
+
+.banner_slider .slick-dots .slick-active div {
+  @apply bg-brand border-brand;
+}

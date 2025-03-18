@@ -9,7 +9,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   return (
-    <header className="relative">
+    <header className="relative shadow-sm">
       {/* Header Top Part */}
       <div className="container">
         <div className="flex justify-between items-center py-8 gap-8">
@@ -162,7 +162,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Main Menu desktop view*/}
-      <nav className="hidden md:block">
+      <nav className="hidden md:block py-6 border-t border-[#ececec]">
         <div className="container flex items-center gap-4 xl:gap-9">
           <div className="relative">
             <h3
