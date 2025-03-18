@@ -26,7 +26,7 @@ const Navbar = () => {
             <select
               name=""
               id=""
-              className="pr-3.5 border-r-2 text-primary hidden lg:block"
+              className="pr-3.5 border-r-2 border-slate-200 text-primary hidden lg:block"
             >
               <option value="">All Categories</option>
               <option value="">All Categories</option>
@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
           {/* Main menu mobile view */}
           <nav
-            className={`w-full h-screen bg-[rgba(0,0,0,0.6)] absolute top-0 left-0 transition-all ${
+            className={`w-full h-screen bg-[rgba(0,0,0,0.6)] absolute top-0 left-0 transition-all z-50 ${
               sidebar ? "translate-x-0" : "-translate-x-full"
             } `}
           >
@@ -173,7 +173,7 @@ const Navbar = () => {
               Categories <FaChevronDown />
             </h3>
             {show && (
-              <div className="bg-white w-md rounded-lg absolute top-10 xl:top-20 left-0 p-7 border-2 border-brand grid grid-cols-2 gap-6">
+              <div className="bg-white w-md rounded-lg absolute top-10 xl:top-20 left-0 p-7 border-2 border-brand grid grid-cols-2 gap-6 z-50">
                 <div className="flex items-center gap-2 cursor-pointer shadow py-2 px-3">
                   <img src="/category-1.svg" alt="category1" className="w-6" />
                   <p className="font-bold text-sm text-primary">

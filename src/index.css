@@ -16,3 +16,6 @@ body {
 .banner_slider .slick-dots .slick-active div {
   @apply bg-brand border-brand;
 }
+.sectn_heading {
+  @apply font-bold text-xl md:text-3xl text-primary;
+}
