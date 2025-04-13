@@ -5,6 +5,8 @@ import ProductBanner from "../components/Home/ProductBanner";
 import PopularProducts from "../components/Home/PopularProducts";
 import BestSells from "../components/Home/BestSells";
 import DealOfDay from "../components/Home/DealOfDay";
+import TrendyProducts from "../components/Home/TrendyProducts";
+import Subscribe from "../components/Home/Subscribe";
 
 const Home = () => {
   return (
@@ -15,6 +17,8 @@ const Home = () => {
       <PopularProducts />
       <BestSells />
       <DealOfDay />
+      <TrendyProducts />
+      <Subscribe />
     </>
   );
 };

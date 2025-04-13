@@ -3,9 +3,11 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router";
 
 const PoductBannerItem = ({ bg, url, children }) => {
+  console.log(bg);
+
   return (
     <div
-      className={`p-5 lg:py-20 lg:px-12 bg-no-repeat bg-cover rounded-xl bg-center w-full bg-[url('${bg}')]`}
+      className={`p-5 lg:py-20 lg:px-12 bg-no-repeat bg-cover rounded-xl bg-center w-full bg-[url(${bg})]`}
     >
       <h2 className="font-bold text-lg lg:text-2xl text-primary xl:w-62 pb-4">
         {children}

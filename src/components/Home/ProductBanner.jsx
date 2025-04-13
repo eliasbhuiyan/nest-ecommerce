@@ -1,11 +1,10 @@
 import React from "react";
 import PoductBannerItem from "./PoductBannerItem";
-import product1 from "/product-banner.png";
 const ProductBanner = () => {
   return (
     <section className="pb-12">
       <div className="container flex flex-col sm:flex-row gap-6">
-        <PoductBannerItem bg={product1} url="/">
+        <PoductBannerItem bg="/product-banner.png" url="/">
           Everyday Fresh & Clean with Our Products
         </PoductBannerItem>
         <PoductBannerItem bg="/product-banner.png" url="/">
