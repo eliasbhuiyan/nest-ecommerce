@@ -1,6 +1,7 @@
 import React from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router";
 
 const ProductItem = () => {
   return (
@@ -10,9 +11,12 @@ const ProductItem = () => {
       </div>
       <img src="/product.png" alt="product" className="w-full" />
       <h4 className="text-xs font-normal text-secondary">Snack</h4>
-      <h3 className="text-primary font-bold text-sm md:text-base">
+      <Link
+        to="/productdetails"
+        className="text-primary font-bold text-sm md:text-base hover:text-brand transition-all"
+      >
         Seeds of Change Organic Quinoa, Brown, & Red Rice
-      </h3>
+      </Link>
       <div className="flex gap-3 py-2.5">
         <ul className="flex text-amber-400">
           <li>
@@ -41,7 +45,7 @@ const ProductItem = () => {
           $28.85
           <span className="text-secondary text-base line-through">$32</span>
         </h4>
-        <button className="bg-[#DEF9EC] flex items-center justify-center text-brand font-bold text-lg md:px-5 md:py-2.5 rounded-sm cursor-pointer">
+        <button className="bg-[#DEF9EC] flex items-center justify-center text-brand font-bold text-lg p-1 rounded-sm cursor-pointer">
           <CiShoppingCart />
           <span>Add</span>
         </button>

@@ -4,9 +4,9 @@ import Categories from "../components/Home/Categories";
 import ProductBanner from "../components/Home/ProductBanner";
 import PopularProducts from "../components/Home/PopularProducts";
 import BestSells from "../components/Home/BestSells";
-import DealOfDay from "../components/Home/DealOfDay";
 import TrendyProducts from "../components/Home/TrendyProducts";
-import Subscribe from "../components/Home/Subscribe";
+import Subscribe from "../components/utils/Subscribe";
+import DealOfDay from "../components/utils/DealOfDay";
 
 const Home = () => {
   return (

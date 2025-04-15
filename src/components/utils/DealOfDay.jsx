@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import DealCard from "./DealCard";
+import DealCard from "../Home/DealCard";
 
 const DealOfDay = () => {
   return (

@@ -43,31 +43,7 @@ const Navbar = () => {
             <ul className="flex gap-4 lg:gap-8 text-sm">
               <li>
                 <Link
-                  to="/"
-                  className="flex gap-2 items-end relative text-secondary"
-                >
-                  <span className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-brand text-white text-xs md:text-sm flex items-center justify-center absolute -top-3 md:-top-2 -right-2 md:right-5">
-                    0
-                  </span>
-                  <FaShoppingCart className="text-2xl lg:text-3xl text-primary" />{" "}
-                  <span className="hidden md:block">Cart</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="flex gap-2 items-end relative text-secondary"
-                >
-                  <span className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-brand text-white text-xs md:text-sm flex items-center justify-center absolute -top-3 md:-top-2 -right-2 md:right-5">
-                    0
-                  </span>
-                  <FaShoppingCart className="text-2xl lg:text-3xl text-primary" />{" "}
-                  <span className="hidden md:block">Cart</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
+                  to="/cart"
                   className="flex gap-2 items-end relative text-secondary"
                 >
                   <span className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-brand text-white text-xs md:text-sm flex items-center justify-center absolute -top-3 md:-top-2 -right-2 md:right-5">
@@ -125,7 +101,7 @@ const Navbar = () => {
                   </li>
                   <li className="w-full">
                     <Link
-                      to="/"
+                      to="/shop"
                       className="block border-b border-[#ececec] py-2"
                     >
                       Shop
@@ -225,7 +201,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-brand transition">
+              <Link to="/shop" className="hover:text-brand transition">
                 Shop
               </Link>
             </li>
