@@ -40,7 +40,7 @@ const Navbar = () => {
             <FaSearch className="ml-auto" />
           </div>
           <div>
-            <ul className="flex gap-4 lg:gap-8 text-sm">
+            <ul className="flex items-center gap-4 lg:gap-8 text-sm">
               <li>
                 <Link
                   to="/cart"
@@ -51,6 +51,11 @@ const Navbar = () => {
                   </span>
                   <FaShoppingCart className="text-2xl lg:text-3xl text-primary" />{" "}
                   <span className="hidden md:block">Cart</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/login">
+                 login
                 </Link>
               </li>
             </ul>

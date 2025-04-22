@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductItem from "../utils/ProductItem";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { NextArrow, PrevArrow } from "../utils/SliderArrows";
+import axios from "axios";
 const BestSells = () => {
   const settings = {
     dots: false,
@@ -46,6 +47,26 @@ const BestSells = () => {
       },
     ],
   };
+
+  const [productList, setProductList] = useState([]);
+  useEffect(() => {
+    const api = async () => {
+      const options = {
+        method: "GET",
+        url: "https://api.freeapi.app/api/v1/ecommerce/products",
+        params: { page: "2", limit: "10" },
+        headers: { accept: "application/json" },
+      };
+
+      try {
+        const res = await axios.request(options);
+        setProductList(res.data.data.products);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    api();
+  }, []);
   return (
     <section className="pb-12">
       <div className="container">
@@ -79,13 +100,9 @@ const BestSells = () => {
           </div>
           <div className="w-full sm:w-3/4">
             <Slider {...settings}>
-              <ProductItem />
-              <ProductItem />
-              <ProductItem />
-              <ProductItem />
-              <ProductItem />
-              <ProductItem />
-              <ProductItem />
+              {productList.map((item) => (
+                <ProductItem key={item._id} data={item} />
+              ))}
             </Slider>
           </div>
         </div>
