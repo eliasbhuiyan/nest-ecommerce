@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-const CategoryItems = () => {
+const CategoryItems = ({data}) => {
   return (
     <div>
       <Link
@@ -10,7 +10,7 @@ const CategoryItems = () => {
       >
         <img src="/burger-caregory.png" alt="burger-caregory" />
         <h3 className="pt-2 md:pt-4 font-bold text-xs md:text-base text-primary">
-          Cake & Milk
+         {data?.name}
         </h3>
         <p className="text-secondary font-normal text-xs md:text-sm">
           26 items

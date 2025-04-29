@@ -4,13 +4,12 @@ import { Link } from "react-router";
 import { FaChevronDown } from "react-icons/fa";
 import { IoCall, IoCloseCircleSharp } from "react-icons/io5";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [sidebar, setSidebar] = useState(false);
-  const data = useSelector((state)=>state.alu.value)
-
+  const userData = useSelector((state)=>state.user.user)
 
   return (
     <header className="relative shadow-sm">
@@ -45,12 +44,6 @@ const Navbar = () => {
           </div>
           <div>
             <ul className="flex items-center gap-4 lg:gap-8 text-sm">
-              <li className="flex  gap-2  items-center">
-                <div className="userImage overflow-hidden w-[30px] h-[30px]  rounded-full bg-gray-200">
-                  <img src={data?.userPhoto} alt="user profile" />
-                  </div>
-                <h2 className="text-[16px] font-medium text-black">{data?.userName}</h2>
-              </li>
               <li>
                 <Link
                   to="/cart"
@@ -64,9 +57,21 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/login">
-                 login
-                </Link>
+                {
+                  userData
+                  ?
+                  <>
+                   <div className="userImage overflow-hidden w-[30px] h-[30px]  rounded-full bg-gray-200">
+                     <img src={userData?.avatar?.url} alt="user profile" />
+                    </div>
+                    <h2 className="text-[16px] font-medium text-black">{userData?.username}</h2>
+                  </>
+
+                  :
+                 <Link to="/login">
+                   login
+                 </Link>
+                }
               </li>
             </ul>
           </div>

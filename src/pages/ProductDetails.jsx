@@ -1,6 +1,9 @@
 import { FaStar } from "react-icons/fa";
 import ProductSlide from "../components/utils/ProductSlide";
 import { CiShoppingCart } from "react-icons/ci";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
 
 const API = {
   images: [
@@ -11,21 +14,45 @@ const API = {
 };
 
 const ProductDetails = () => {
+  const params = useParams()
   const settings = {
     direction: "horizontal", // or "vertical"
     zoom: true, // or false
   };
 
+  const [productData, setProductData] = useState({});
+  useEffect(() => {
+    const api = async () => {
+      const options = {
+        method: "GET",
+        url: `https://api.escuelajs.co/api/v1/products`,
+        headers: { accept: "application/json" },
+      };
+
+      try {
+        const res = await axios.request(options);
+        res.data.find((item)=>{
+         if(item.slug == params.slug){
+          setProductData(item);
+         }
+        })
+        setProductList(res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    api();
+  }, []);
   return (
     <section className="py-12">
       <div className="container">
         <div className="flex gap-11">
           <div className="w-1/3">
-            <ProductSlide settings={settings} api={API.images} />
+            <ProductSlide settings={settings} api={productData.images} />
           </div>
           <div>
             <h2 className="text-4xl font-bold text-primary">
-              Seeds of Change Organic Quinoa, Brown
+              {productData?.title}
             </h2>
             <div className="flex gap-3 py-2.5">
               <ul className="flex text-amber-400 text-xs">
@@ -48,13 +75,11 @@ const ProductDetails = () => {
               <p className="text-xs font-normal text-secondary">(4.0)</p>
             </div>
             <h4 className="text-sm md:text-4xl font-bold text-brand py-4">
-              $28.85
-              <span className="text-secondary text-base line-through">$32</span>
+              ${productData?.price}
+              <span className="text-secondary text-base line-through">{productData.price + 100}</span>
             </h4>
             <p className="text-base font-normal text-secondary">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
-              rem officia, corrupti reiciendis minima nisi modi, quasi, odio
-              minus dolore impedit fuga eum eligendi.
+              {productData?.description}
             </p>
             <div className="pt-10 flex items-center gap-5">
               <input

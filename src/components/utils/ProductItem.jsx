@@ -9,13 +9,13 @@ const ProductItem = ({ data }) => {
       <div className="absolute top-0 left-0 bg-brand text-white text-xs px-2 py-1 rounded-br-xl">
         <p>Hot</p>
       </div>
-      <img src={data?.mainImage?.url} alt="product" className="w-full" />
+      <img src={data?.images[0]} alt="product" className="w-full" />
       <h4 className="text-xs font-normal text-secondary">Snack</h4>
       <Link
-        to="/productdetails"
+        to={`/productdetails/${data.slug}`}
         className="text-primary font-bold text-sm md:text-base hover:text-brand transition-all"
       >
-        {data?.name}
+        {data?.title}
       </Link>
       <div className="flex gap-3 py-2.5">
         <ul className="flex text-amber-400">

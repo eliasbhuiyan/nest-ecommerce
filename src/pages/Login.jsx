@@ -3,25 +3,19 @@ import { Link, useNavigate } from "react-router";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { userAccountInfo } from "../slices/counterSlice";
+import { userAccountInfo } from "../slices/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const [userData, setUserData] = useState({
     username: "",
     password: "",
   });
-  const logeduserData = {
-    userName : 'test account',
-    userPhoto:'https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small_2x/Basic_Ui__28186_29.jpg',
-  }
-  const dispatch = useDispatch()
 
 
   const handelLogin = async (e) => {
     e.preventDefault();
-    dispatch(userAccountInfo(logeduserData))
-    localStorage.setItem('userData' , JSON.stringify(logeduserData))
     const options = {
       method: "POST",
       url: "https://api.freeapi.app/api/v1/users/login",
@@ -37,6 +31,7 @@ const Login = () => {
       console.log(res.data.data.accessToken);
       localStorage.setItem("token", res.data.data.accessToken);
       localStorage.setItem("user", JSON.stringify(res.data.data.user));
+      dispatch(userAccountInfo(res.data.data.user))
       setTimeout(() => {
         navigate("/");
       }, 2000);

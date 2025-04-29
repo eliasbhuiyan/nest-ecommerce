@@ -53,20 +53,22 @@ const BestSells = () => {
     const api = async () => {
       const options = {
         method: "GET",
-        url: "https://api.freeapi.app/api/v1/ecommerce/products",
+        url: "https://api.escuelajs.co/api/v1/products",
         params: { page: "2", limit: "10" },
         headers: { accept: "application/json" },
       };
 
       try {
         const res = await axios.request(options);
-        setProductList(res.data.data.products);
+        setProductList(res.data);
       } catch (error) {
         console.error(error);
       }
     };
     api();
   }, []);
+
+  productList.length = 10;
   return (
     <section className="pb-12">
       <div className="container">
