@@ -10,6 +10,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const userData = useSelector((state)=>state.user.user)
+  const cartData = useSelector((state)=>state.cart.cart)
 
   return (
     <header className="relative shadow-sm">
@@ -50,7 +51,7 @@ const Navbar = () => {
                   className="flex gap-2 items-end relative text-secondary"
                 >
                   <span className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-brand text-white text-xs md:text-sm flex items-center justify-center absolute -top-3 md:-top-2 -right-2 md:right-5">
-                    0
+                   {cartData.length}
                   </span>
                   <FaShoppingCart className="text-2xl lg:text-3xl text-primary" />{" "}
                   <span className="hidden md:block">Cart</span>
